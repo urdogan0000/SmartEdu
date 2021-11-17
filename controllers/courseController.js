@@ -19,8 +19,10 @@ exports.createCourse = async (req, res) => {
 
 exports.getAllCourse = async (req, res) => {
   try {
+    
     const categorySlug = req.query.categories;
     const category = await Category.findOne({ slug: categorySlug });
+    
     let filter = {};
     if (categorySlug) {
       filter = { category: category._id };
